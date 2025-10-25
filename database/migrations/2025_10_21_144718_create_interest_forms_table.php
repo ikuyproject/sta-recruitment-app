@@ -24,7 +24,7 @@ return new class extends Migration
             $table->text('reason_other')->nullable(); 
             // -----------------------
 
-            $table->datetime('created_at')->useCurrent();
+            $table->datetime('reason_choice')->useCurrent();
         });
     }
 

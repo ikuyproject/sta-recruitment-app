@@ -22,7 +22,13 @@
                         <td class="py-3 px-4">{{ $form->interest_id }}</td>
                         <td class="py-3 px-4 font-semibold">{{ $form->student->fullname }}</td>
                         <td class="py-3 px-4">{{ $form->program->program_name }}</td>
-                        <td class="py-3 px-4 text-sm">{{ $form->reason ?: '-' }}</td>
+                        <td class="py-3 px-4 text-sm">
+                        @if ($form->reason_choice === 'อื่นๆ')
+                            <strong>{{ $form->reason_choice }}</strong>: {{ $form->reason_other ?? '-' }}
+                             @else
+                            {{ $form->reason_choice ?? '-' }}
+                           @endif
+                        </td>
                         <td class="py-3 px-4">{{ \Carbon\Carbon::parse($form->created_at)->format('d/m/Y H:i') }}</td>
                         </tr>
                 @empty
